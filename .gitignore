@@ -105,3 +105,4 @@ typings/
 /.idea/modules.xml
 /.idea/vcs.xml
 /NOTES.txt
+.idea/prettier.xml
