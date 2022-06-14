@@ -18,4 +18,4 @@ getEmail = () => {
   return this.email;
 };
 
-module.exports = employee;
+module.exports = Employee;

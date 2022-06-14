@@ -106,3 +106,4 @@ typings/
 /.idea/vcs.xml
 /NOTES.txt
 .idea/prettier.xml
+.idea/codeStyles/codeStyleConfig.xml
