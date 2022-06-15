@@ -107,3 +107,4 @@ typings/
 /NOTES.txt
 .idea/prettier.xml
 .idea/codeStyles/codeStyleConfig.xml
+.idea/jsLibraryMappings.xml
