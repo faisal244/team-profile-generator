@@ -7,7 +7,7 @@ describe ("Employee", () => {
   const mockId = "12345678";
   const mockEmail = "test@gmail.com";
 
-  //Instantiation
+  //Instantiation of a new instance of the Employee class
   const employee = new Employee (mockName, mockId, mockEmail);
 
   // - should return an instance of an Employee

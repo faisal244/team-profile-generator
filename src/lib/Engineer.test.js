@@ -9,7 +9,7 @@ describe ("Engineer", () => {
   const mockRole = "Engineer";
   const mockGithubUsername = "barrylikescoding123";
 
-  //Instantiation
+  //Instantiation of a new instance of the Engineer class
   const engineer = new Engineer (mockName, mockId, mockEmail, mockRole, mockGithubUsername);
 
   // - should return an instance of an Engineer
