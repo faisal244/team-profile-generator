@@ -2,7 +2,7 @@ const Employee = require ("./Employee");
 
 //Add a class for the Engineer that inherits properties from the Employee Class
 class Engineer extends Employee {
-  constructor (name, id, email, githubUsername) {
+  constructor (name, id, email, role, githubUsername) {
     super (name, id, email);
 
     this.githubUsername = githubUsername;
