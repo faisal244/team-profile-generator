@@ -8,6 +8,33 @@ const introQuestions = [
 		name: "teamName",
 		validate: (answer) => (!answer ? "please enter a name" : true),
 	},
+
+	{
+		type: "input",
+		message: "Please enter managers name:",
+		name: "name",
+		filter: (answer) => answer.toUpperCase(),
+		validate: (answer) => (!answer ? "please enter a name" : true),
+	},
+	{
+		type: "input",
+		message: "Please enter id:",
+		name: "id",
+		validate: (answer) =>
+			isNaN(answer) ? "Your ID must be only numbers - please try again" : true,
+	},
+	{
+		type: "input",
+		message: "Please enter email:",
+		name: "email",
+		validate: (answer) => (!answer ? "please enter an email" : true),
+	},
+	{
+		type: "input",
+		message: "Please enter office number:",
+		name: "officeNumber",
+		validate: (answer) => (isNaN(answer) ? "please enter a number" : true),
+	},
 ];
 
 const questions = [
@@ -15,7 +42,7 @@ const questions = [
 		type: "list",
 		message: "Please select role:",
 		name: "role",
-		choices: ["Manager", "Engineer", "Intern"],
+		choices: ["Engineer", "Intern"],
 	},
 	{
 		type: "input",
@@ -39,13 +66,6 @@ const questions = [
 	},
 	{
 		type: "input",
-		message: "Please enter office number:",
-		name: "officeNumber",
-		when: (answer) => answer.role === "Manager", // only displays question if role is manager
-		validate: (answer) => (isNaN(answer) ? "please enter a number" : true),
-	},
-	{
-		type: "input",
 		message: "Please enter github username:",
 		name: "github",
 		when: (answer) => answer.role === "Engineer", // only displays question if role is engineer
@@ -63,10 +83,10 @@ const questions = [
 // .then((answers) => {
 //   if (answers.role === "Manager") {
 //     const manager = new Manager(
-//       answers.name,
-//       answers.id,
-//       answers.email,
-//       answers.officeNumber
+// answers.name,
+// answers.id,
+// answers.email,
+// answers.officeNumber
 //     );
 //     team.push(manager);
 //     loopingQuestion();

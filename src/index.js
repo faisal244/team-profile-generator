@@ -8,9 +8,11 @@ const { writeToFile } = require("./utils/utils.js");
 // const render = require("./utils/renderHtml.js");
 
 // Importing Classes
+const { name, id, email } = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHTMLfile = require("./utils/renderHtml");
 
 // Importing Questions
 const {
@@ -27,30 +29,55 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // initialize user interaction
 const init = async () => {
 	let inProgress = true;
-	let teamMembers = [];
+	// Declaration of empty arrays to hold objects for each team member
+	let engineers = [];
+	let interns = [];
+	let managers = [];
 
-	const { teamName } = await inquirer.prompt(introQuestions);
+	const { name, id, email, officeNumber } = await inquirer.prompt(
+		introQuestions
+	);
+	const manager = new Manager(name, id, email, officeNumber);
+	managers.push(manager);
 	while (inProgress) {
-		const mainQuestions = await inquirer.prompt(questions);
+		const answers = await inquirer.prompt(questions);
 		// const confirmNextStep = await inquirer.prompt(loopingQuestion);
 
 		// push to array here
-
+		// if (answers.role === "Manager") {
+		// 	manager = new Manager(
+		// 		answers.name,
+		// 		answers.id,
+		// 		answers.email,
+		// 		answers.officeNumber
+		// 	);
+		// managers.push(manager);
+		if (answers.role === "Engineer") {
+			const engineer = new Engineer(
+				answers.name,
+				answers.id,
+				answers.email,
+				answers.github
+			);
+			engineers.push(engineer);
+		} else if (answers.role === "Intern") {
+			const intern = new Intern(
+				answers.name,
+				answers.id,
+				answers.email,
+				answers.school
+			);
+			interns.push(intern);
+		}
 		const addAnotherEmployee = await inquirer.prompt(loopingQuestion);
 		if (addAnotherEmployee.nextStep === "No, my team is complete") {
 			inProgress = false;
 		}
 	}
 
-	// Manager only questions
-	// const { officeNumber } = await inquirer.prompt(officeNumber);
-
-	// const questions = introQuestions;
-	// prompt the user with Initial manager questions
-
-	// await inquirer.prompt(questions);
-	// Declaration of an empty array to hold objects for each team member
-
+	generateHTMLfile(manager, engineers, interns);
+	const html = generateHTMLfile(manager, engineers, interns);
+	console.log(html);
 	// const { teamName } = await inquirer.prompt(teamBuilderQuestions);
 	// const { name, id, email, officeNumber } = await inquirer.prompt(
 	// 	managerQuestion
