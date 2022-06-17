@@ -27,10 +27,20 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // initialize user interaction
 const init = async () => {
 	let inProgress = true;
-	let team = [];
+	let teamMembers = [];
+
 	const { teamName } = await inquirer.prompt(introQuestions);
-	const mainQuestions = await inquirer.prompt(questions);
-	const confirmNextStep = await inquirer.prompt(loopingQuestion);
+	while (inProgress) {
+		const mainQuestions = await inquirer.prompt(questions);
+		// const confirmNextStep = await inquirer.prompt(loopingQuestion);
+
+		// push to array here
+
+		const addAnotherEmployee = await inquirer.prompt(loopingQuestion);
+		if (!addAnotherEmployee.nextStep) {
+			inProgress = false;
+		}
+	}
 
 	// Manager only questions
 	// const { officeNumber } = await inquirer.prompt(officeNumber);

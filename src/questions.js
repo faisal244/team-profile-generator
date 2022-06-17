@@ -94,10 +94,10 @@ const questions = [
 const loopingQuestion = [
 	{
 		name: "nextStep",
-		type: "list",
+		type: "confirm",
 		message: "Would you like to add another team member?",
-		choices: ["Yes, an Engineer", "Yes, an Intern", "No, my team is complete"],
-		// default: "false"
+		// choices: ["Yes", "No, my team is complete"],
+		// default: "false",
 	},
 ];
 
