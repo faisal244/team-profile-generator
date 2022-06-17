@@ -30,12 +30,27 @@ const generateEngineerCard = (engineer) => {
 </div>`;
 };
 
-const generateInternCard = (intern) => {};
+const generateInternCard = (intern) => {
+	return `<div class="card" style="width: 18rem">
+<img
+	src="/src/dist/assets/img/engineer-ninja-image.png"
+	class="card-img-top"
+	alt="engineering-ninja"
+/>
+<div class="card-body">
+	<h5 class="card-title">${intern.getName()}</h5>
+	<p class="card-text">ID: ${intern.getId()}</p>
+	<p class="card-text">Email: ${intern.getEmail()}</p>
+	<p class="card-text">Github Username: ${intern.getSchool()}</p>
+</div>
+</div>`;
+};
 
 const generateHTMLfile = (manager, engineers, interns) => {
 	// const managerCard = generateManagerCard(manager);
 	const managerCard = generateManagerCard(manager);
 	const engineerCards = engineers.map(generateEngineerCard);
+	const internCards = interns.map(generateInternCard);
 	console.log(manager, engineers, interns);
 	console.log(engineerCards);
 	console.log(managerCard);
@@ -146,8 +161,6 @@ crossorigin="anonymous"
 		<!--            Engineer Card 1-->
 			
 		${engineerCards.join("")}
-	
-		
 	</div>
 </div>
 </div>
@@ -178,33 +191,7 @@ crossorigin="anonymous"
 		class="accordion-body d-flex flex-row flex-wrap justify-content-center"
 	>
 		<!--            Intern Card 1-->
-		<div class="card" style="width: 18rem">
-			<img
-				src="/src/dist/assets/img/engineer-ninja-image.png"
-				class="card-img-top"
-				alt="Rizwan Khan"
-			/>
-			<div class="card-body">
-				<h5 class="card-title">NAME</h5>
-				<p class="card-text">ID: imissbobhoskins2587</p>
-				<p class="card-text">Email: test@gmail.com</p>
-				<p class="card-text">School: Jackie Chan Action Academy</p>
-			</div>
-		</div>
-
-		<!--            Intern Card 2-->
-		<div class="card" style="width: 18rem">
-			<img
-				src="/src/dist/assets/img/engineer-ninja-image.png"
-				class="card-img-top"
-				alt="Rizwan Khan"
-			/>
-			<div class="card-body">
-				<h5 class="card-title">NAME</h5>
-				<p class="card-text">ID: imissbobhoskins2587</p>
-				<p class="card-text">Email: test@gmail.com</p>
-				<p class="card-text">School: Jackie Chan Action Academy</p>
-			</div>
+		${internCards.join("")}
 		</div>
 	</div>
 </div>
