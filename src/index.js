@@ -37,7 +37,7 @@ const init = async () => {
 		// push to array here
 
 		const addAnotherEmployee = await inquirer.prompt(loopingQuestion);
-		if (!addAnotherEmployee.nextStep) {
+		if (addAnotherEmployee.nextStep === "No, my team is complete") {
 			inProgress = false;
 		}
 	}
