@@ -4,9 +4,10 @@
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const { writeToFile } = require("./utils/utils.js");
+// const render = require("./utils/renderHtml.js");
 
 // Importing Classes
-// const render = require("./src/utils/renderHtml.js");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -18,8 +19,6 @@ const {
 	loopingQuestion,
 } = require("./questions.js");
 
-const { writeToFile } = require("./utils/utils.js");
-
 // Checking to see if the directory and file foor the generated HTML page already exists
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 // If not, create directory and file
@@ -30,6 +29,12 @@ const init = async () => {
 	let inProgress = true;
 	let team = [];
 	const { teamName } = await inquirer.prompt(introQuestions);
+	const mainQuestions = await inquirer.prompt(questions);
+	const confirmNextStep = await inquirer.prompt(loopingQuestion);
+
+	// Manager only questions
+	// const { officeNumber } = await inquirer.prompt(officeNumber);
+
 	// const questions = introQuestions;
 	// prompt the user with Initial manager questions
 

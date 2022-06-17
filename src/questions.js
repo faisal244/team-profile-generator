@@ -28,7 +28,8 @@ const questions = [
 		type: "input",
 		message: "Please enter id:",
 		name: "id",
-		validate: (answer) => (isNaN(answer) ? "please enter a number" : true),
+		validate: (answer) =>
+			isNaN(answer) ? "Your ID must be only numbers - please try again" : true,
 	},
 	{
 		type: "input",
