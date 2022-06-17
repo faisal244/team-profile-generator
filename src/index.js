@@ -34,24 +34,15 @@ const init = async () => {
 	let interns = [];
 	let managers = [];
 
-	const { name, id, email, officeNumber } = await inquirer.prompt(
+	const { teamName, name, id, email, officeNumber } = await inquirer.prompt(
 		introQuestions
 	);
-	const manager = new Manager(name, id, email, officeNumber);
+	const manager = new Manager(teamName, name, id, email, officeNumber);
 	managers.push(manager);
+
 	while (inProgress) {
 		const answers = await inquirer.prompt(questions);
-		// const confirmNextStep = await inquirer.prompt(loopingQuestion);
 
-		// push to array here
-		// if (answers.role === "Manager") {
-		// 	manager = new Manager(
-		// 		answers.name,
-		// 		answers.id,
-		// 		answers.email,
-		// 		answers.officeNumber
-		// 	);
-		// managers.push(manager);
 		if (answers.role === "Engineer") {
 			const engineer = new Engineer(
 				answers.name,
@@ -69,14 +60,15 @@ const init = async () => {
 			);
 			interns.push(intern);
 		}
+
 		const addAnotherEmployee = await inquirer.prompt(loopingQuestion);
 		if (addAnotherEmployee.nextStep === "No, my team is complete") {
 			inProgress = false;
 		}
 	}
 
-	generateHTMLfile(manager, engineers, interns);
-	const html = generateHTMLfile(manager, engineers, interns);
+	generateHTMLfile(teamName, manager, engineers, interns);
+	const html = generateHTMLfile(teamName, manager, engineers, interns);
 	console.log(html);
 	// const { teamName } = await inquirer.prompt(teamBuilderQuestions);
 	// const { name, id, email, officeNumber } = await inquirer.prompt(

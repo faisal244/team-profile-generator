@@ -1,3 +1,7 @@
+// const generateTeamName = (manager) => {
+// 	return `<h1 class="display-4 text-white">${manager.getTeamName}</h1>`;
+// };
+
 const generateManagerCard = (manager) => {
 	return `<div class="card" style="width: 18rem">
 <img
@@ -46,14 +50,14 @@ const generateInternCard = (intern) => {
 </div>`;
 };
 
-const generateHTMLfile = (manager, engineers, interns) => {
-	// const managerCard = generateManagerCard(manager);
+const generateHTMLfile = (teamName, manager, engineers, interns) => {
 	const managerCard = generateManagerCard(manager);
+	// const GenerateTeamName = generateTeamName(teamName);
 	const engineerCards = engineers.map(generateEngineerCard);
 	const internCards = interns.map(generateInternCard);
-	console.log(manager, engineers, interns);
-	console.log(engineerCards);
-	console.log(managerCard);
+	// console.log(manager, engineers, interns);
+	// console.log(engineerCards);
+	// console.log(managerCard);
 
 	return `<!DOCTYPE html>
 <html lang="en">
@@ -92,7 +96,7 @@ crossorigin="anonymous"
 <!--      <img src="/src/dist/assets/img/jumbotron-5.png" class="img-thumbnail" style="width:50px, height:50px" alt="">-->
 <div class="jumbotron jumbotron-fluid">
 <div class="container">
-	<h1 class="display-4 text-white">TEAM NAME GOES HERE</h1>
+	<h1 class="display-4 text-white">${teamName}</h1>
 	<p class="lead text-white">
 		Thank you for using this application - Below are your generated profile
 		summaries for all your team members.
