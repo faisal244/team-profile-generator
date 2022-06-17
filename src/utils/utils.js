@@ -7,3 +7,8 @@ const writeToFile = (filePath, data) => {
 		console.log(error.message);
 	}
 };
+
+// exporting of the above utility modules for use in other files
+module.exports = {
+	writeToFile,
+};
