@@ -1,6 +1,8 @@
+// Importing dependancies
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// Initial Manager and team name Questions
 const introQuestions = [
 	{
 		type: "input",
@@ -37,6 +39,7 @@ const introQuestions = [
 	},
 ];
 
+// Main questions aimed at Engineer/Intern team members, with validation steps for each question
 const questions = [
 	{
 		type: "list",
@@ -68,49 +71,21 @@ const questions = [
 		type: "input",
 		message: "Please enter github username:",
 		name: "github",
-		when: (answer) => answer.role === "Engineer", // only displays question if role is engineer
+		// question only displayed if role is engineer
+		when: (answer) => answer.role === "Engineer",
 		validate: (answer) => (!answer ? "please enter a value" : true),
 	},
 	{
 		type: "input",
 		message: "Please enter school:",
 		name: "school",
-		when: (answer) => answer.role === "Intern", // only displays question if role is intern
+		// question only displayed if role is intern
+		when: (answer) => answer.role === "Intern",
 		validate: (answer) => (!answer ? "please enter a value" : true),
 	},
 ];
 
-// .then((answers) => {
-//   if (answers.role === "Manager") {
-//     const manager = new Manager(
-// answers.name,
-// answers.id,
-// answers.email,
-// answers.officeNumber
-//     );
-//     team.push(manager);
-//     loopingQuestion();
-//   } else if (answers.role === "Engineer") {
-//     const engineer = new Engineer(
-//       answers.name,
-//       answers.id,
-//       answers.email,
-//       answers.github
-//     );
-//     team.push(engineer);
-//     loopingQuestion();
-//   } else if (answers.role === "Intern") {
-//     const intern = new Intern(
-//       answers.name,
-//       answers.id,
-//       answers.email,
-//       answers.school
-//     );
-//     team.push(intern);
-//     loopingQuestion();
-//   }
-// });
-
+//  Question that either starts the main question loop again for adding another team member or ends application and generates file
 const loopingQuestion = [
 	{
 		name: "nextStep",
@@ -120,15 +95,5 @@ const loopingQuestion = [
 		default: "true",
 	},
 ];
-
-// .then((answer) => {
-// 	if (answer.nextStep) {
-// 		questions(); // runs employee question loop if true
-// 	} else {
-// 		const html = render(team);
-// 		fs.writeFileSync("./output/team.html", html);
-// 		console.log("Your team profiles have been generated");
-// 	}
-// });
 
 module.exports = { introQuestions, questions, loopingQuestion };

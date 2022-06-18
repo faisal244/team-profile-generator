@@ -1,7 +1,4 @@
-// const generateTeamName = (manager) => {
-// 	return `<h1 class="display-4 text-white">${manager.getTeamName}</h1>`;
-// };
-
+// Function to generate Manager Team member profile cards
 const generateManagerCard = (manager) => {
 	return `<div class="card" style="width: 18rem">
 <img
@@ -18,6 +15,7 @@ const generateManagerCard = (manager) => {
 </div>`;
 };
 
+// Function to generate Engineer team member profile cards
 const generateEngineerCard = (engineer) => {
 	return `<div class="card" style="width: 18rem">
 <img
@@ -34,6 +32,7 @@ const generateEngineerCard = (engineer) => {
 </div>`;
 };
 
+// Function to generate Intern team member profile cards
 const generateInternCard = (intern) => {
 	return `<div class="card" style="width: 18rem">
 <img
@@ -50,17 +49,14 @@ const generateInternCard = (intern) => {
 </div>`;
 };
 
+// Function that takes in the users inputs as parameters, then dynamically generates html for the team profiles page
 const generateHTMLfile = (teamName, manager, engineers, interns) => {
 	const managerCard = generateManagerCard(manager);
-	// const GenerateTeamName = generateTeamName(teamName);
-	const engineerCards = engineers.map(generateEngineerCard);
-	const internCards = interns.map(generateInternCard);
-	// console.log(manager, engineers, interns);
-	// console.log(engineerCards);
-	// console.log(managerCard);
+	const engineerCards = engineers.map(generateEngineerCard); //takes each engineer team member object from the engineers array and generates a profile card in the engineer accordian section
+	const internCards = interns.map(generateInternCard); //takes each intern team member object from the intern array and generates a profile card in the intern accordian section
 
 	return `<!DOCTYPE html>
-<html lang="en">
+	<html lang="en">
 	<head>
 	<meta charset="UTF-8" />
 	<meta
@@ -221,4 +217,5 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 `;
 };
 
+// export of the generateHTML function
 module.exports = generateHTMLfile;
