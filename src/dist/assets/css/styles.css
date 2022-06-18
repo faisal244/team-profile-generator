@@ -1,45 +1,45 @@
 /* Declaration of CSS Variables */
 
 :root {
-  --rich-black-fogra-29: #01161eff;
-  --midnight-green-eagle-green: #124559ff;
-  --teal-blue: #598392ff;
-  --cambridge-blue: #aec3b0ff;
-  --beige: #eff6e0ff;
+	--rich-black-fogra-29: #01161eff;
+	--midnight-green-eagle-green: #124559ff;
+	--teal-blue: #598392ff;
+	--cambridge-blue: #aec3b0ff;
+	--beige: #eff6e0ff;
 }
 
 * {
-  font-family: 'JetBrains Mono', monospace;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto', sans-serif;
+	font-family: "JetBrains Mono", monospace;
+	font-family: "Poppins", sans-serif;
+	font-family: "Roboto", sans-serif;
+}
+
+a {
+	color: var(--beige);
 }
 
 /* Hero Area Styles */
 .jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: var(--midnight-green-eagle-green);
-  border-radius: 0.3rem;
+	padding: 2rem 1rem;
+	margin-bottom: 2rem;
+	background-color: var(--midnight-green-eagle-green);
+	border-radius: 0.3rem;
 }
 
 .accordion-button {
-  background-color: var(--midnight-green-eagle-green);
-  color: white;
+	background-color: var(--midnight-green-eagle-green);
+	color: white;
 }
 
 .card {
-
-  padding: 2rem 1rem;
-  margin: 1em;
-  background-color: var(--teal-blue);
-  /*background-color: #e9ecef;*/
-  border-radius: 0.3rem;
-  color: white;
-
+	padding: 2rem 1rem;
+	margin: 1em;
+	background-color: var(--teal-blue);
+	/*background-color: #e9ecef;*/
+	border-radius: 0.3rem;
+	color: white;
 }
 
 .view-profile-btn {
-  background-color: var(--midnight-green-eagle-green);
+	background-color: var(--midnight-green-eagle-green);
 }
-
-

@@ -1,65 +1,4 @@
-// const generateTeamName = (manager) => {
-// 	return `<h1 class="display-4 text-white">${manager.getTeamName}</h1>`;
-// };
-
-const generateManagerCard = (manager) => {
-	return `<div class="card" style="width: 18rem">
-<img
-	src="/src/dist/assets/img/engineer-ninja-image.png"
-	class="card-img-top"
-	alt="Suraj Verma"
-/>
-<div class="card-body">
-	<h5 class="card-title">${manager.getName()}</h5>
-	<p class="card-text">ID: ${manager.getId()}</p>
-	<p class="card-text">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>  </p>
-	<p class="card-text">Office Number: ${manager.getOfficeNumber()}</p>
-</div>
-</div>`;
-};
-
-const generateEngineerCard = (engineer) => {
-	return `<div class="card" style="width: 18rem">
-<img
-	src="/src/dist/assets/img/engineer-ninja-image.png"
-	class="card-img-top"
-	alt="engineering-ninja"
-/>
-<div class="card-body">
-	<h5 class="card-title">${engineer.getName()}</h5>
-	<p class="card-text">ID: ${engineer.getId()}</p>
-	<p class="card-text">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>  </p>
-	<p class="card-text">Github Username: <a target="_blank" href="https://www.github.com/${engineer.getGithubUsername()}">${engineer.getGithubUsername()}</a></p>
-</div>
-</div>`;
-};
-
-const generateInternCard = (intern) => {
-	return `<div class="card" style="width: 18rem">
-<img
-	src="/src/dist/assets/img/engineer-ninja-image.png"
-	class="card-img-top"
-	alt="engineering-ninja"
-/>
-<div class="card-body">
-	<h5 class="card-title">${intern.getName()}</h5>
-	<p class="card-text">ID: ${intern.getId()}</p>
-	<p class="card-text">Email: ${intern.getEmail()}</p>
-	<p class="card-text">Github Username: ${intern.getSchool()}</p>
-</div>
-</div>`;
-};
-
-const generateHTMLfile = (teamName, manager, engineers, interns) => {
-	const managerCard = generateManagerCard(manager);
-	// const GenerateTeamName = generateTeamName(teamName);
-	const engineerCards = engineers.map(generateEngineerCard);
-	const internCards = interns.map(generateInternCard);
-	// console.log(manager, engineers, interns);
-	// console.log(engineerCards);
-	// console.log(managerCard);
-
-	return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 	<meta charset="UTF-8" />
@@ -96,7 +35,7 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 		<!--      <img src="/src/dist/assets/img/jumbotron-5.png" class="img-thumbnail" style="width:50px, height:50px" alt="">-->
 			<div class="jumbotron jumbotron-fluid">
 				<div class="container">
-					<h1 class="display-4 text-white">${teamName}</h1>
+					<h1 class="display-4 text-white">Test Team 1</h1>
 						<p class="lead text-white">
 							Thank you for using this application - Below are your generated profile
 							summaries for all your team members.
@@ -132,7 +71,19 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 			class="accordion-body d-flex flex-row flex-wrap justify-content-center"
 		>
 			<!--            Manager Card 1-->
-				${managerCard}
+				<div class="card" style="width: 18rem">
+<img
+	src="/src/dist/assets/img/engineer-ninja-image.png"
+	class="card-img-top"
+	alt="Suraj Verma"
+/>
+<div class="card-body">
+	<h5 class="card-title">BARRY</h5>
+	<p class="card-text">ID: 43242</p>
+	<p class="card-text">Email: <a href="mailto:test@gmail.com">test@gmail.com</a>  </p>
+	<p class="card-text">Office Number: 423432432</p>
+</div>
+</div>
 		</div>
 	</div>
 	</div>
@@ -164,7 +115,19 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 		>
 			<!--            Engineer Card 1-->
 				
-			${engineerCards.join("")}
+			<div class="card" style="width: 18rem">
+<img
+	src="/src/dist/assets/img/engineer-ninja-image.png"
+	class="card-img-top"
+	alt="engineering-ninja"
+/>
+<div class="card-body">
+	<h5 class="card-title">BOBBY</h5>
+	<p class="card-text">ID: 434332</p>
+	<p class="card-text">Email: <a href="mailto:test@gmail.com">test@gmail.com</a>  </p>
+	<p class="card-text">Github Username: <a target="_blank" href="https://www.github.com/faisal244">faisal244</a></p>
+</div>
+</div>
 		</div>
 	</div>
 	</div>
@@ -195,7 +158,7 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 			class="accordion-body d-flex flex-row flex-wrap justify-content-center"
 		>
 			<!--            Intern Card 1-->
-			${internCards.join("")}
+			
 			</div>
 		</div>
 	</div>
@@ -218,7 +181,3 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 	></script>
 	</body>
 </html>
-`;
-};
-
-module.exports = generateHTMLfile;

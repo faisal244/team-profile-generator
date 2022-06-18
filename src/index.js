@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const { writeToFile } = require("./utils/utils.js");
-// const render = require("./utils/renderHtml.js");
+const render = require("./utils/renderHtml.js");
 
 // Importing Classes
 const { name, id, email } = require("./lib/Employee");
@@ -22,7 +22,7 @@ const {
 } = require("./questions.js");
 
 // Checking to see if the directory and file foor the generated HTML page already exists
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "./src/dist");
 // If not, create directory and file
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
@@ -70,12 +70,7 @@ const init = async () => {
 	generateHTMLfile(teamName, manager, engineers, interns);
 	const html = generateHTMLfile(teamName, manager, engineers, interns);
 	console.log(html);
-	// const { teamName } = await inquirer.prompt(teamBuilderQuestions);
-	// const { name, id, email, officeNumber } = await inquirer.prompt(
-	// 	managerQuestion
-	// );
-	// const manager = new Manager({ name, id, email, officeNumber });
-	// teamMembers.push(manager);
+	writeToFile("./src/dist/team.html", html);
 };
 
 init();
