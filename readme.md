@@ -1,5 +1,20 @@
 # Object-Oriented Programming: Team Profile Generator
 
+## Table of Contents
+
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Video Demo](#video-demo)
+- [Screenshots](#screenshots)
+- [Contact Me](#contact-me)
+- [My Development Environment](#my-development-environment)
+- [Languages and Packages used](#languages-and-packages-used)
+
+## Description
+
 During my time at the University of Birmingham Full Stack Web Development Bootcamp, I was tasked with building a Node.js command-line application that takes in information about employees on a software engineering team, then generates a HTML webpage that displays summaries for each team member. This application uses Jest for running the unit tests and Inquirer for collecting input from the user.
 
 A wise Software Engineer once told me that it is my responsibility as a developer that for every line of code i write, there must be a corresponding test. Testing is key to making code maintainable long-term, so i also also wrote unit tests for my code using the Jest.js framework and ensured that it passed each test.
