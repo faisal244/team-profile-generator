@@ -43,8 +43,8 @@ const generateInternCard = (intern) => {
 <div class="card-body">
 	<h5 class="card-title">${intern.getName()}</h5>
 	<p class="card-text">ID: ${intern.getId()}</p>
-	<p class="card-text">Email: ${intern.getEmail()}</p>
-	<p class="card-text">Github Username: ${intern.getSchool()}</p>
+	<p class="card-text">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+	<p class="card-text">School: ${intern.getSchool()}</p>
 </div>
 </div>`;
 };
@@ -216,6 +216,5 @@ const generateHTMLfile = (teamName, manager, engineers, interns) => {
 </html>
 `;
 };
-
 // export of the generateHTML function
 module.exports = generateHTMLfile;

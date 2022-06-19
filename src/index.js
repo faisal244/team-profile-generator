@@ -10,7 +10,6 @@ const { name, id, email } = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHTMLfile = require("./utils/renderHtml");
 
 // Importing Questions
 const {
@@ -34,11 +33,11 @@ const init = async () => {
 	let managers = [];
 
 	// Initial question prompts - requesting team name and manager information from the user
-	const { teamName, name, id, email, officeNumber } = await inquirer.prompt(
+	const { name, id, email, officeNumber, teamName } = await inquirer.prompt(
 		introQuestions
 	);
 	// Instantiates a new instance of the Manager class and populates information based on the users inputs
-	const manager = new Manager(teamName, name, id, email, officeNumber);
+	const manager = new Manager(name, id, email, officeNumber, teamName);
 	// Pushes team member object to the managers array
 	managers.push(manager);
 
@@ -62,7 +61,8 @@ const init = async () => {
 				answers.name,
 				answers.id,
 				answers.email,
-				answers.school
+				answers.school,
+				answers.role
 			);
 			// Pushes team member object to the engineers array
 			interns.push(intern);
@@ -79,6 +79,7 @@ const init = async () => {
 	generateHTMLfile(teamName, manager, engineers, interns);
 	const html = generateHTMLfile(teamName, manager, engineers, interns);
 	writeToFile("./src/dist/team.html", html);
+	console.log(html);
 };
 
 init();
