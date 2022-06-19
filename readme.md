@@ -1,16 +1,8 @@
-# 10 Object-Oriented Programming: Team Profile Generator
+# Object-Oriented Programming: Team Profile Generator
 
-## Your Task
+During my time at the University of Birmingham Full Stack Web Development Bootcamp, I was tasked with building a Node.js command-line application that takes in information about employees on a software engineering team, then generates a HTML webpage that displays summaries for each team member. This application uses Jest for running the unit tests and Inquirer for collecting input from the user.
 
-Your task is to build a Node.js command-line application that takes in information about employees on a software
-engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code
-maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
-
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its
-functionality and all of the tests passing. You’ll need to submit a link to the video AND add it to the readme of your
-project.
-
-> **Note**: There is no starter code for this assignment.
+A wise Software Engineer once told me that it is my responsibility as a developer that for every line of code i write, there must be a corresponding test. Testing is key to making code maintainable long-term, so i also also wrote unit tests for my code using the Jest.js framework and ensured that it passed each test.
 
 ## User Story
 
@@ -42,161 +34,71 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 
-## Mock-Up
+## Installation
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+The application will be invoked by using the following command into your terminal / CLI
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/10-object-oriented-programming-homework-demo.png)
-
-The styling in the image is just an example, so feel free to add your own.
-
-## Getting Started
-
-This Challenge will combine many of the skills we've covered so far. In addition to the User Story and Acceptance
-Criteria, we’ve provided some guidelines to help get started.
-
-Because this Challenge will require a video submission, refer to
-the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide)
-for additional guidance on creating a video.
-
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests
-and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be
-invoked by using the following command:
-
-```bash
-node index.js
 ```
 
-It is recommended that you start with a directory structure that looks like the following example:
+git clone git@github.com:faisal244/team-profile-generator.git
+cd team-profile-generator
+npm install
 
-```md
-.
-├── __tests__/ //jest tests
-│ ├── Employee.test.js
-│ ├── Engineer.test.js
-│ ├── Intern.test.js
-│ └── Manager.test.js
-├── dist/ // rendered output (HTML) and CSS style sheet      
-├── lib/ // classes
-├── src/ // template helper code
-├── .gitignore // indicates which folders and files Git should ignore
-├── index.js // runs the application
-└── package.json           
 ```
 
-**Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and
-include it when you push up to your application's repository.
+## Usage
 
-The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in
-the `_tests_` directory) must ALL pass.
+Once installed, please execute the following command in your terminal to run this application:
 
-The first class is an `Employee` parent class with the following properties and methods:
+```
 
-* `name`
+npm run start
 
-* `id`
+```
 
-* `email`
+## Video Demo
 
-* `getName()`
+A walkthrough video of the application can be viewed by [clicking here](https://drive.google.com/file/d/1cC2Kk9u7vsTqa8HeVQG_YcqPzZlT3jUG/view?usp=sharing)
 
-* `getId()`
+## Screenshots
 
-* `getEmail()`
+The following images show the application passing all tests within the Jest testing framework (both in terminal and in the Jest testing and debugging suite within Webstorm), as well as the user journey in the CLI and the generated HTML file’s appearance and functionality:
 
-* `getRole()`&mdash;returns `'Employee'`
+![The rendered HTML webpage that the user is presented with at the end of the application user journey. This is a screenshot of what the user initally sees when they load the page ](./src/dist/assets/img/html-screenshot-1.png)
+![The rendered HTML webpage that the user is presented with at the end of the application user journey. This is a screenshot of what the user initally sees when they click on the Engineer accordian heading](./src/dist/assets/img/html-screenshot-2.png)
+![The rendered HTML webpage that the user is presented with at the end of the application user journey. This is a screenshot of what the user initally sees when they click on the Interns accordian heading](./src/dist/assets/img/html-screenshot-3.png)
+![A screenshot of what the page looks like when all of the accordian sections are closed](./src/dist/assets/img/html-screenshot-4.png)
+![Screenshot of the CLI displaying all of the questions that the user gets prompted with, as well as the success message when the application ends](src/dist/assets/img/terminal-screenshot.png)
+![A screenshot of the Jest testing and debugging suite within Webstorm - showing all of the tests per test file and how long each test took to complete and pass](src/dist/assets/img/jest-test-screenshot-1.png)
+![A screenshot of Jest running in the integrated terminal in VSCode, showing all tests passing](src/dist/assets/img/jest-test-screenshot-2.png)
 
-The other three classes will extend `Employee`.
+## Contact me
 
-In addition to `Employee`'s properties and methods, `Manager` will also have the following:
+- Contact me by Email: [m.faisal244@gmail.com](mailto:m.faisal244@gmail.com)
 
-* `officeNumber`
+- [Connect with me on linkedin](https://www.linkedin.com/in/faisal244/)
 
-* `getRole()`&mdash;overridden to return `'Manager'`
+- [View my Portfolio](https://faisal244.github.io/Portfolio/)
 
-In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
+## My Development Environment
 
-* `github`&mdash;GitHub username
+- VScode
+- Terminal
+- Webstorm
+- MacOS Monterey
+- Git
+- Github
 
-* `getGithub()`
+## Languages and Packages used
 
-* `getRole()`&mdash;overridden to return `'Engineer'`
-
-In addition to `Employee`'s properties and methods, `Intern` will also have the following:
-
-* `school`
-
-* `getSchool()`
-
-* `getRole()`&mdash;overridden to return `'Intern'`
-
-Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count
-> towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Deliverables: 15%
-
-* A sample HTML file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be
-  submitted, and a link to the video should be included in your README file.
-
-* The walkthrough video must show all four tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated HTML file that matches the user input.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-    * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer).
-
-    * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-    * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+- Javascript
+- Jest
+- Node.JS
+- Inquirer Package
+- Bootstrap 5.2
+- jQuery
+- Google Fonts
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+---
